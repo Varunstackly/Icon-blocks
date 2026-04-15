@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stackly Workspace</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="absolute inset-0 flex flex-col font-sans overflow-hidden bg-[#142542]">
+
+  <!-- Navbar -->
+  <nav class="h-16 bg-[#0B1B3D] text-white flex items-center justify-between px-6 shrink-0 z-50 w-full relative">
+    <div class="flex h-8 min-w-[92px] items-center justify-center overflow-hidden rounded-[50%] bg-white px-3 sm:h-9 sm:min-w-[104px]">
+      <img src="/stackly-logo1.png" alt="Stackly logo" class="h-[18px] w-auto sm:h-[20px]" />
+    </div>
+
+    <div class="hidden lg:flex items-center space-x-8 text-sm font-medium">
+      <a href="#" class="hover:text-blue-300 transition-colors">Home</a>
+      <a href="#" class="hover:text-blue-300 transition-colors">About Us</a>
+      <div class="flex items-center gap-1 cursor-pointer hover:text-blue-300 transition-colors">
+        <span>Our Products</span>
+        <i data-lucide="chevron-down" class="w-4 h-4"></i>
+      </div>
+      <div class="flex items-center gap-1 cursor-pointer hover:text-blue-300 transition-colors">
+        <span>Categories</span>
+        <i data-lucide="chevron-down" class="w-4 h-4"></i>
+      </div>
+      <a href="#" class="hover:text-blue-300 transition-colors">Contact</a>
+    </div>
+
+    <div class="flex items-center gap-4 lg:gap-6">
+      <button class="flex items-center justify-center gap-2 border border-slate-600 rounded-full w-8 h-8 lg:w-auto lg:h-auto lg:px-4 lg:py-1.5 hover:bg-slate-800 transition-colors text-sm cursor-pointer z-50 relative">
+        <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+        <span class="hidden lg:inline">Cart</span>
+      </button>
+      <button class="w-8 h-8 rounded-full bg-white text-slate-900 flex items-center justify-center hover:bg-slate-200 transition-colors cursor-pointer z-50 relative">
+        <i data-lucide="search" class="w-4 h-4"></i>
+      </button>
+      
+      <button class="lg:hidden w-8 h-8 flex items-center justify-center text-white cursor-pointer z-50 relative">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+
+      <div class="w-8 h-8 lg:w-9 lg:h-9 rounded-full overflow-hidden border-2 border-slate-600 cursor-pointer">
+        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="User profile" class="w-full h-full object-cover" />
+      </div>
+    </div>
+  </nav>
+
+  <!-- Split Workspace Layout -->
+  <div class="flex flex-row flex-1 overflow-hidden h-full w-full relative">
+    
+    <!-- Left Sidebar Wrapper -->
+    <div class="static shrink-0 h-full w-[185px] translate-x-0 bg-[#0B1B3D]">
+      <div class="h-full relative flex w-full">
+        <!-- LeftSidebar -->
+        <aside class="w-full lg:w-[185px] bg-[#1A2B4C] text-white flex flex-col h-full shrink-0 relative lg:z-20 lg:rounded-tr-[2.5rem] lg:mt-[-10px] lg:pt-[10px] pl-4 pr-4 shadow-[2px_0_10px_rgba(0,0,0,0.1)]">
+          <div class="flex items-center pt-8 pb-4">
+            <button class="pb-1 text-sm font-semibold cursor-pointer text-white border-b-2 border-white">Blocks</button>
+            <span class="text-[#4E627C] mx-2 mb-1">|</span>
+            <button class="pb-1 text-sm font-medium cursor-pointer text-[#8495A5] border-b border-[#4E627C] hover:text-white">Pages</button>
+          </div>
+
+          <div class="py-2 mb-4">
+            <div class="bg-[#F6F4EB] rounded-[10px] flex items-center px-3 py-2">
+              <i data-lucide="search" class="w-4 h-4 text-[#517AA5] mr-2 shrink-0"></i>
+              <input type="text" placeholder="Search Blocks..." class="bg-transparent border-none outline-none w-full text-xs font-medium text-[#517AA5] placeholder:text-[#517AA5]/70" />
+              <i data-lucide="mic" class="w-4 h-4 text-[#517AA5] ml-1 shrink-0"></i>
+            </div>
+          </div>
+
+          <div class="flex-1 overflow-y-auto no-scrollbar pb-3 pr-2 -mr-2">
+            
+            <div class="mb-6">
+              <div class="flex items-center justify-between cursor-pointer mb-3.5">
+                <span class="font-semibold text-[15px]">Basic Blocks</span>
+                <i data-lucide="chevron-down" class="w-4 h-4 text-white rotate-180 transition-transform"></i>
+              </div>
+              <div class="grid grid-cols-3 gap-2">
+                <div class="bg-[#FAF8ED] rounded-xl flex flex-col items-center justify-center pt-2 pb-1.5 cursor-pointer shadow-sm border border-[#E8E6DB] hover:ring-2 ring-[#517AA5] transition-all">
+                  <i data-lucide="type" class="w-[18px] h-[18px] mb-1.5 text-[#517AA5]"></i>
+                  <span class="text-[10px] font-semibold text-[#517AA5]">Text</span>
+                </div>
+                <div class="bg-[#FAF8ED] rounded-xl flex flex-col items-center justify-center pt-2 pb-1.5 cursor-pointer shadow-sm border border-[#E8E6DB] hover:ring-2 ring-[#517AA5] transition-all">
+                  <i data-lucide="image" class="w-[18px] h-[18px] mb-1.5 text-[#517AA5]"></i>
+                  <span class="text-[10px] font-semibold text-[#517AA5]">Image</span>
+                </div>
+                <div class="bg-[#FAF8ED] rounded-xl flex flex-col items-center justify-center pt-2 pb-1.5 cursor-pointer shadow-sm border border-[#E8E6DB] hover:ring-2 ring-[#517AA5] transition-all">
+                  <i data-lucide="mouse-pointer-2" class="w-[18px] h-[18px] mb-1.5 text-[#517AA5]"></i>
+                  <span class="text-[10px] font-semibold text-[#517AA5]">Button</span>
+                </div>
+              </div>
+              
+              <div class="mt-4 bg-[#F6F4EB] rounded-[8px] p-[3px] flex items-center">
+                <button class="flex-[1.5] text-[11px] font-semibold py-[6px] rounded-[6px] transition-colors cursor-pointer bg-white text-[#517AA5] shadow-sm">All Bosie</button>
+                <button class="flex-1 text-[11px] font-semibold py-[6px] rounded-[6px] transition-colors cursor-pointer text-[#8495A5] hover:text-[#517AA5] bg-transparent">Next</button>
+              </div>
+            </div>
+
+            <div class="mb-6">
+              <div class="flex items-center justify-between cursor-pointer mb-3.5">
+                <span class="font-semibold text-[15px]">Basic Blocks</span>
+                <i data-lucide="chevron-down" class="w-4 h-4 text-white rotate-180 transition-transform"></i>
+              </div>
+              <div class="grid grid-cols-3 gap-2">
+                <div class="bg-[#FAF8ED] rounded-xl flex flex-col items-center justify-center pt-2 pb-1.5 cursor-pointer shadow-sm border border-[#E8E6DB] hover:ring-2 ring-[#517AA5] transition-all">
+                  <i data-lucide="video" class="w-[18px] h-[18px] mb-1.5 text-[#517AA5]"></i>
+                  <span class="text-[10px] font-semibold text-[#517AA5]">Video</span>
+                </div>
+                <div class="bg-[#FAF8ED] rounded-xl flex flex-col items-center justify-center pt-2 pb-1.5 cursor-pointer shadow-sm border border-[#E8E6DB] hover:ring-2 ring-[#517AA5] transition-all">
+                  <i data-lucide="image" class="w-[18px] h-[18px] mb-1.5 text-[#517AA5]"></i>
+                  <span class="text-[10px] font-semibold text-[#517AA5]">Cenh</span>
+                </div>
+                <div class="bg-[#FAF8ED] rounded-xl flex flex-col items-center justify-center pt-2 pb-1.5 cursor-pointer shadow-sm border border-[#E8E6DB] hover:ring-2 ring-[#517AA5] transition-all">
+                  <i data-lucide="minus" class="w-[18px] h-[18px] mb-1.5 text-[#517AA5]"></i>
+                  <span class="text-[10px] font-semibold text-[#517AA5]">Divider</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-6">
+              <div class="flex items-center justify-between cursor-pointer mb-3.5">
+                <span class="font-semibold text-[15px]">Basic Blocks</span>
+                <i data-lucide="chevron-down" class="w-4 h-4 text-white rotate-180 transition-transform"></i>
+              </div>
+              <div class="grid grid-cols-3 gap-2">
+                <div class="bg-[#FAF8ED] rounded-xl flex flex-col items-center justify-center pt-2 pb-1.5 cursor-pointer shadow-sm border border-[#E8E6DB] hover:ring-2 ring-[#517AA5] transition-all">
+                  <i data-lucide="app-window" class="w-[18px] h-[18px] mb-1.5 text-[#517AA5]"></i>
+                  <span class="text-[10px] font-semibold text-[#517AA5]">Section</span>
+                </div>
+                <div class="bg-[#FAF8ED] rounded-xl flex flex-col items-center justify-center pt-2 pb-1.5 cursor-pointer shadow-sm border border-[#E8E6DB] hover:ring-2 ring-[#517AA5] transition-all">
+                  <i data-lucide="columns" class="w-[18px] h-[18px] mb-1.5 text-[#517AA5]"></i>
+                  <span class="text-[10px] font-semibold text-[#517AA5]">Columns</span>
+                </div>
+                <div class="bg-[#FAF8ED] rounded-xl flex flex-col items-center justify-center pt-2 pb-1.5 cursor-pointer shadow-sm border border-[#E8E6DB] hover:ring-2 ring-[#517AA5] transition-all">
+                  <i data-lucide="heading" class="w-[18px] h-[18px] mb-1.5 text-[#517AA5]"></i>
+                  <span class="text-[10px] font-semibold text-[#517AA5]">Header</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="pb-6 bg-[#1A2B4C]">
+            <button class="cursor-pointer flex items-center justify-between w-full rounded-xl bg-[#F5F2DF] px-4 py-2 text-[#517AA5] shadow-sm hover:bg-[#EBE7Ce] transition-colors">
+              <div class="flex items-center gap-2">
+                <svg width="18" height="22" viewBox="0 0 24 24" fill="none">
+                  <path d="M9 3C6 3 5 5 5 7V17C5 20 7 21 9 21H13C16 21 18 19 18 16C18 14 17 13 15 12C17 11 18 10 18 8C18 5 16 3 13 3H9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="text-[15px] font-semibold">Help</span>
+              </div>
+              <i data-lucide="circle" class="h-[18px] w-[18px] opacity-70"></i>
+            </button>
+          </div>
+        </aside>
+      </div>
+    </div>
+    
+    <!-- Main Canvas Wrapper -->
+    <div class="flex-1 w-full min-w-0 h-full bg-[#EBEBE6]">
+      <div class="flex-1 bg-[#EBEBE6] h-full flex flex-col relative overflow-hidden">
+        <!-- Top Toolbar -->
+        <div class="h-14 mt-4 mx-3 lg:mx-6 px-3 lg:px-4 bg-[#F9F9F8] rounded-[14px] flex items-center justify-between shrink-0">
+          <div class="flex items-center gap-1 lg:gap-2 cursor-pointer font-bold text-[#1C2C4A] text-[13px] lg:text-[15px] ml-0 lg:ml-1 shrink-0">
+            <span class="truncate whitespace-nowrap">My Website</span>
+            <i data-lucide="chevron-down" class="w-3 h-3 lg:w-4 lg:h-4 text-[#1C2C4A]"></i>
+          </div>
+          <div class="flex items-center gap-1.5 lg:gap-2.5">
+            <div class="flex items-center border border-[#DCDAD4] rounded-[20px] bg-white shadow-sm h-[34px]">
+              <button class="px-3 cursor-pointer text-[#7B8497] hover:text-[#1C2C4A] transition-colors h-full flex items-center justify-center">
+                <i data-lucide="undo" class="w-4 h-4"></i>
+              </button>
+              <div class="w-[1px] h-[18px] bg-[#DCDAD4]"></div>
+              <button class="px-3 cursor-pointer text-[#7B8497] hover:text-[#1C2C4A] transition-colors h-full flex items-center justify-center">
+                <i data-lucide="redo" class="w-4 h-4"></i>
+              </button>
+            </div>
+            <button class="cursor-pointer h-[34px] w-[34px] lg:w-auto px-0 lg:px-4 text-[13px] font-bold text-[#55637A] border border-[#DCDAD4] rounded-full lg:rounded-[20px] hover:bg-gray-50 transition-colors shadow-sm bg-white flex items-center justify-center">
+              <i data-lucide="save" class="w-4 h-4 lg:hidden text-[#7B8497]"></i>
+              <span class="hidden lg:inline">Save Draft</span>
+            </button>
+            <button class="cursor-pointer h-[34px] w-[34px] lg:w-auto px-0 lg:px-4 text-[13px] font-bold text-[#55637A] border border-[#DCDAD4] bg-white rounded-full lg:rounded-[20px] hover:bg-gray-50 transition-colors shadow-sm flex items-center justify-center lg:gap-1.5">
+              <i data-lucide="eye" class="w-4 h-4 text-[#7B8497]"></i>
+              <span class="hidden lg:inline">Preview</span>
+            </button>
+            <button class="cursor-pointer h-[34px] w-[34px] lg:w-auto px-0 lg:px-5 text-[13px] font-bold text-white bg-[#1C2C4A] rounded-full lg:rounded-[20px] hover:bg-[#14233c] transition-colors shadow-sm flex items-center justify-center lg:gap-2">
+              <span class="hidden lg:inline">Publish</span>
+              <i data-lucide="send" class="w-3.5 h-3.5 -ml-0.5 lg:-ml-0"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="flex-1 overflow-y-auto px-8 pt-16 pb-32 flex flex-col gap-8 items-center bg-[#EBEBE6] no-scrollbar">
+          <div class="transition-all duration-300 ease-in-out w-full flex flex-col gap-8" style="max-width: 100%;">
+            
+            <div class="bg-[#F9F9F8] border border-[#2B54A6] ring-1 ring-[#2B54A6] rounded-[16px] flex flex-col pt-6 px-6 pb-8 transition-all cursor-pointer relative shadow-[0_4px_12px_rgba(0,0,0,0.03)]">
+              <div class="flex items-center justify-between pb-3 border-b border-[#DCDAD4]">
+                <span class="text-[14px] font-bold text-[#1C2C4A] pl-2">Icon Blocks</span>
+                <button class="text-[#1C2C4A] hover:bg-slate-200 p-1 rounded transition-colors mr-1 z-10">
+                  <i data-lucide="x" class="w-[18px] h-[18px]"></i>
+                </button>
+              </div>
+              
+              <div class="mt-8 space-y-6">
+                <div>
+                  <span class="text-[12px] font-bold text-[#4E627C] mb-2 block pl-2">Icon Blocks</span>
+                  <div class="w-full h-[52px] bg-white rounded-[12px] border border-[#DCDAD4] shadow-sm flex items-center px-4 justify-between">
+                    <span class="text-[14px] font-semibold text-[#4E627C] mr-4 whitespace-nowrap">to - fa.sar</span>
+                    <div class="flex-1 flex items-center justify-end overflow-hidden">
+                      <div class="w-[120px] shrink-0 h-[1px] bg-[#B5BFCB]"></div>
+                      <div class="w-8 shrink-0 h-[2.5px] bg-[#4E627C] mx-1"></div>
+                      <div class="w-8 shrink-0 h-[2.5px] bg-[#4E627C] mx-1"></div>
+                      <div class="w-8 shrink-0 h-[2.5px] bg-[#4E627C] ml-1"></div>
+                      <div class="w-12 shrink-0 h-[1px] bg-[#B5BFCB] ml-2"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <span class="text-[12px] font-bold text-[#4E627C] mb-2 block pl-2">Divider Icons</span>
+                  <div class="w-full h-[52px] bg-white rounded-[12px] border border-[#DCDAD4] shadow-sm flex items-center px-6 overflow-hidden">
+                    <div class="flex-1 flex items-center">
+                      <div class="w-1/3 shrink-0 h-[1.5px] bg-[#B5BFCB]"></div>
+                      <div class="w-2/3 ml-4 flex-1 h-0 border-b-[1.5px] border-dashed border-[#B5BFCB]"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <span class="text-[12px] font-bold text-[#4E627C] mb-2 block pl-2">Divider Settings</span>
+                  <div class="w-full h-[52px] bg-[#FAF9F5] rounded-[12px] border border-[#A6B2C8] bg-opacity-40 shadow-sm flex items-center px-4 gap-3">
+                    <div class="w-[44px] h-[22px] rounded-[6px] border border-[#A6B2C8] bg-transparent"></div>
+                    <div class="w-[120px] h-[22px] rounded-[6px] border border-[#A6B2C8] bg-transparent"></div>
+                    <div class="w-[160px] h-[22px] rounded-[6px] border border-[#A6B2C8] bg-transparent"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+
+        <button class="absolute bottom-6 left-6 bg-[#2B54A6] text-white rounded-lg px-4 py-2.5 flex items-center gap-2 shadow-lg hover:bg-[#254992] transition-colors z-30">
+          <i data-lucide="help-circle" class="w-[18px] h-[18px]"></i>
+          <span class="text-[15px] font-bold">Help</span>
+        </button>
+
+        <div class="absolute bottom-6 right-6 bg-[#2B54A6] rounded-[6px] p-[6px] flex items-center gap-1.5 shadow-lg z-30">
+          <button class="p-1.5 rounded transition-colors bg-white/20 text-white">
+            <i data-lucide="monitor" class="w-5 h-5"></i>
+          </button>
+          <button class="p-1.5 rounded transition-colors text-white/50 hover:text-white bg-transparent">
+            <i data-lucide="tablet" class="w-5 h-5"></i>
+          </button>
+          <button class="p-1.5 rounded transition-colors text-white/50 hover:text-white bg-transparent">
+            <i data-lucide="smartphone" class="w-5 h-5"></i>
+          </button>
+          <button class="p-1.5 text-white hover:text-white bg-transparent rounded transition-colors ml-1 border-l border-white/20 pl-2">
+            <i data-lucide="search" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Sidebar Wrapper -->
+    <div class="static shrink-0 h-full w-[230px] translate-x-0">
+      <div class="h-full relative flex flex-col items-start w-full">
+        <!-- RightSidebar -->
+        <aside class="w-full lg:w-[230px] bg-[#FAF9F5] h-full shrink-0 border-l border-[#DCDAD4] flex flex-col z-20 pt-10 px-6">
+          
+          <div class="flex items-center pb-2 mb-8 mt-2">
+            <button class="font-bold text-[18px] pb-1.5 px-0 cursor-pointer text-[#1C2C4A]">Divider</button>
+            <span class="text-[#A2AAB8] text-[22px] mx-5 font-light pb-1">|</span>
+            <button class="font-bold text-[18px] pb-1.5 px-0 cursor-pointer text-[#7B8497] font-medium">Style</button>
+          </div>
+
+          <div class="flex-1">
+            <div class="flex items-center justify-between mb-8 cursor-pointer group">
+              <span class="text-[14px] font-semibold text-[#55637A]">Divider Setting</span>
+              <i data-lucide="chevron-down" class="w-[18px] h-[18px] text-[#55637A] transition-transform rotate-180"></i>
+            </div>
+
+            <div class="mb-10">
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-[14px] font-semibold text-[#55637A]">Style</span>
+                <div class="flex items-center gap-2">
+                  <button class="w-6 h-6 bg-[#1C2C4A] text-white rounded-[4px] flex items-center justify-center">
+                    <i data-lucide="equal" class="w-[14px] h-[14px]"></i>
+                  </button>
+                  <button class="w-6 h-6 text-[#1C2C4A] rounded flex items-center justify-center hover:bg-gray-100">
+                    <i data-lucide="menu" class="w-[18px] h-[18px]"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="flex border border-[#A6B2C8] rounded-[2px] shadow-sm overflow-hidden h-9">
+                <button class="flex-1 border-r border-[#A6B2C8] flex items-center px-2 relative transition-colors cursor-pointer bg-[#F9F7E8]">
+                  <div class="w-full flex items-center">
+                    <div class="w-1/2 h-[1px] bg-[#A6B2C8]"></div>
+                    <div class="w-1/2 h-[3px] bg-[#1C2C4A]"></div>
+                  </div>
+                </button>
+                <button class="flex-1 border-r border-[#A6B2C8] flex items-center px-1.5 relative transition-colors cursor-pointer bg-transparent">
+                  <div class="w-full flex items-center">
+                    <div class="w-1/4 h-[1px] bg-[#A6B2C8]"></div>
+                    <div class="w-2/4 h-[3px] bg-[#1C2C4A]"></div>
+                    <div class="w-1/4 h-[1px] bg-[#A6B2C8]"></div>
+                  </div>
+                </button>
+                <button class="flex-1 flex items-center px-2 relative transition-colors cursor-pointer bg-transparent">
+                  <div class="w-full flex items-center">
+                    <div class="w-1/2 h-[3px] bg-[#1C2C4A]"></div>
+                    <div class="w-1/2 h-[1px] bg-[#A6B2C8]"></div>
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            <div class="mb-10">
+              <div class="flex justify-between items-center mb-5">
+                <span class="text-[14px] font-semibold text-[#55637A]">Thickness</span>
+                <div class="bg-white border border-[#A6B2C8] rounded-[4px] px-2.5 py-1 shadow-sm">
+                  <span class="text-[12px] font-bold text-[#55637A]">1 px</span>
+                </div>
+              </div>
+              <div class="w-full flex items-center relative mt-2 mb-1">
+                <div class="w-full h-[5px] bg-[#E8E6DB] rounded-full absolute left-0 right-0 z-0"></div>
+                <div class="h-[5px] bg-[#1C2C4A] rounded-full absolute left-0 z-1" style="width: 10%"></div>
+                <input type="range" min="1" max="10" value="1" class="w-full h-[5px] bg-transparent appearance-none cursor-pointer z-10 m-0 
+                  [&::-webkit-slider-thumb]:appearance-none 
+                  [&::-webkit-slider-thumb]:w-[14px] 
+                  [&::-webkit-slider-thumb]:h-[14px] 
+                  [&::-webkit-slider-thumb]:bg-[#F8A811] 
+                  [&::-webkit-slider-thumb]:rounded-sm 
+                  [&::-webkit-slider-thumb]:border-[1.5px] 
+                  [&::-webkit-slider-thumb]:border-[#A6B2C8]
+                  [&::-webkit-slider-thumb]:shadow-sm
+                  [&::-moz-range-thumb]:w-[14px] 
+                  [&::-moz-range-thumb]:h-[14px] 
+                  [&::-moz-range-thumb]:bg-[#F8A811] 
+                  [&::-moz-range-thumb]:rounded-sm
+                  [&::-moz-range-thumb]:border-[1.5px] 
+                  [&::-moz-range-thumb]:border-[#A6B2C8]
+                  [&::-moz-range-thumb]:shadow-sm">
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between mb-8 cursor-pointer relative">
+              <span class="text-[14px] font-semibold text-[#55637A]">Color</span>
+              <div class="w-10 h-7 border border-[#A6B2C8] bg-white rounded-[4px] flex items-center justify-center shadow-sm relative overflow-hidden">
+                <div class="w-[10px] h-[10px] rounded-full bg-[#F8A811]"></div>
+                <input type="color" value="#F8A811" class="absolute inset-0 w-[150%] h-[150%] opacity-0 cursor-pointer -top-1 -left-1">
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import {
-  ChevronDown, Undo, Redo, Eye, Send,
+  ChevronDown, Undo, Redo, Eye, Send, Save,
   X, Monitor, Tablet, Smartphone, Search,
   HelpCircle, Type, Image as ImageIcon, MousePointer2, Minus
 } from 'lucide-react';
@@ -15,12 +15,12 @@ const MainCanvas = () => {
     <div className="flex-1 bg-[#EBEBE6] h-full flex flex-col relative overflow-hidden">
 
       {/* Top Toolbar */}
-      <div className="h-14 mt-4 mx-6 px-4 bg-[#F9F9F8] rounded-[14px] flex items-center justify-between shrink-0">
-        <div className="flex items-center gap-2 cursor-pointer font-bold text-[#1C2C4A] text-[15px] ml-1">
-          <span>My Website</span>
-          <ChevronDown className="w-4 h-4 text-[#1C2C4A]" strokeWidth={2.5} />
+      <div className="h-14 mt-4 mx-3 lg:mx-6 px-3 lg:px-4 bg-[#F9F9F8] rounded-[14px] flex items-center justify-between shrink-0">
+        <div className="flex items-center gap-1 lg:gap-2 cursor-pointer font-bold text-[#1C2C4A] text-[13px] lg:text-[15px] ml-0 lg:ml-1 shrink-0">
+          <span className="truncate whitespace-nowrap">My Website</span>
+          <ChevronDown className="w-3 h-3 lg:w-4 lg:h-4 text-[#1C2C4A]" strokeWidth={2.5} />
         </div>
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-1.5 lg:gap-2.5">
           <div className="flex items-center border border-[#DCDAD4] rounded-[20px] bg-white shadow-sm h-[34px]">
             <button onClick={() => alert('Undo action')} className="px-3 cursor-pointer text-[#7B8497] hover:text-[#1C2C4A] transition-colors h-full flex items-center justify-center">
               <Undo className="w-4 h-4" strokeWidth={2.5} />
@@ -30,16 +30,17 @@ const MainCanvas = () => {
               <Redo className="w-4 h-4" strokeWidth={2.5} />
             </button>
           </div>
-          <button onClick={() => alert('Saved Draft')} className="cursor-pointer h-[34px] px-4 text-[13px] font-bold text-[#55637A] border border-[#DCDAD4] rounded-[20px] hover:bg-gray-50 transition-colors shadow-sm bg-white">
-            Save Draft
+          <button onClick={() => alert('Saved Draft')} className="cursor-pointer h-[34px] w-[34px] lg:w-auto px-0 lg:px-4 text-[13px] font-bold text-[#55637A] border border-[#DCDAD4] rounded-full lg:rounded-[20px] hover:bg-gray-50 transition-colors shadow-sm bg-white flex items-center justify-center">
+            <Save className="w-4 h-4 lg:hidden text-[#7B8497]" strokeWidth={2.5} />
+            <span className="hidden lg:inline">Save Draft</span>
           </button>
-          <button onClick={() => alert('Previewing...')} className="cursor-pointer h-[34px] px-4 text-[13px] font-bold text-[#55637A] border border-[#DCDAD4] bg-white rounded-[20px] hover:bg-gray-50 transition-colors shadow-sm flex items-center gap-1.5">
+          <button onClick={() => alert('Previewing...')} className="cursor-pointer h-[34px] w-[34px] lg:w-auto px-0 lg:px-4 text-[13px] font-bold text-[#55637A] border border-[#DCDAD4] bg-white rounded-full lg:rounded-[20px] hover:bg-gray-50 transition-colors shadow-sm flex items-center justify-center lg:gap-1.5">
             <Eye className="w-4 h-4 text-[#7B8497]" strokeWidth={2.5} />
-            Preview
+            <span className="hidden lg:inline">Preview</span>
           </button>
-          <button onClick={() => alert('Published!')} className="cursor-pointer h-[34px] px-5 text-[13px] font-bold text-white bg-[#1C2C4A] rounded-[20px] hover:bg-[#14233c] transition-colors shadow-sm flex items-center gap-2">
-            Publish
-            <Send className="w-3.5 h-3.5" strokeWidth={2.5} />
+          <button onClick={() => alert('Published!')} className="cursor-pointer h-[34px] w-[34px] lg:w-auto px-0 lg:px-5 text-[13px] font-bold text-white bg-[#1C2C4A] rounded-full lg:rounded-[20px] hover:bg-[#14233c] transition-colors shadow-sm flex items-center justify-center lg:gap-2">
+            <span className="hidden lg:inline">Publish</span>
+            <Send className="w-3.5 h-3.5 -ml-0.5 lg:-ml-0" strokeWidth={2.5} />
           </button>
         </div>
       </div>
