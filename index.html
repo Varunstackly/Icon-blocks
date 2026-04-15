@@ -26,7 +26,7 @@
   <!-- Navbar -->
   <nav class="h-16 bg-[#0B1B3D] text-white flex items-center justify-between px-6 shrink-0 z-50 w-full relative">
     <div class="flex h-8 min-w-[92px] items-center justify-center overflow-hidden rounded-[50%] bg-white px-3 sm:h-9 sm:min-w-[104px]">
-      <img src="/stackly-logo1.png" alt="Stackly logo" class="h-[18px] w-auto sm:h-[20px]" />
+      <img src="Public/stackly-logo1.png" alt="Stackly logo" class="h-[18px] w-auto sm:h-[20px]" />
     </div>
 
     <div class="hidden lg:flex items-center space-x-8 text-sm font-medium">
@@ -64,12 +64,26 @@
 
   <!-- Split Workspace Layout -->
   <div class="flex flex-row flex-1 overflow-hidden h-full w-full relative">
+
+    <!-- Mobile/Tablet Backdrop -->
+    <div id="mobile-backdrop" class="hidden absolute inset-0 bg-black/40 z-30 transition-opacity" onclick="closeSidebars()"></div>
+
+    <!-- Floating Toggle Buttons -->
+    <button id="left-toggle-btn" class="lg:hidden absolute left-0 top-1/2 -translate-y-1/2 bg-[#1A2B4C] text-white p-2 rounded-r-lg z-20 shadow-md flex items-center justify-center cursor-pointer border border-l-0 border-[#4E627C]" onclick="openLeftSidebar()">
+      <i data-lucide="chevron-right" class="w-5 h-5"></i>
+    </button>
+    <button id="right-toggle-btn" class="lg:hidden absolute right-0 top-1/2 -translate-y-1/2 bg-[#FAF9F5] text-[#1C2C4A] p-2 rounded-l-lg z-20 shadow-[0px_2px_10px_rgba(0,0,0,0.1)] border border-r-0 border-[#DCDAD4] flex items-center justify-center cursor-pointer" onclick="openRightSidebar()">
+      <i data-lucide="chevron-left" class="w-5 h-5"></i>
+    </button>
     
     <!-- Left Sidebar Wrapper -->
-    <div class="static shrink-0 h-full w-[185px] translate-x-0 bg-[#0B1B3D]">
+    <div id="left-sidebar-wrapper" class="absolute inset-y-0 left-0 z-40 shrink-0 h-full w-[260px] lg:w-[185px] transition-transform duration-300 ease-in-out bg-[#0B1B3D] -translate-x-[100%] lg:translate-x-0 lg:static">
       <div class="h-full relative flex w-full">
         <!-- LeftSidebar -->
-        <aside class="w-full lg:w-[185px] bg-[#1A2B4C] text-white flex flex-col h-full shrink-0 relative lg:z-20 lg:rounded-tr-[2.5rem] lg:mt-[-10px] lg:pt-[10px] pl-4 pr-4 shadow-[2px_0_10px_rgba(0,0,0,0.1)]">
+        <aside class="w-full h-full bg-[#1A2B4C] text-white flex flex-col shrink-0 relative lg:z-20 lg:rounded-tr-[2.5rem] lg:mt-[-10px] lg:pt-[10px] pl-4 pr-4 shadow-[2px_0_10px_rgba(0,0,0,0.1)] pb-8 lg:pb-0">
+          <button class="lg:hidden absolute top-4 right-4 bg-white/10 text-white p-1 rounded-full z-50 hover:bg-white/20 shadow-sm cursor-pointer" onclick="closeSidebars()">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
           <div class="flex items-center pt-8 pb-4">
             <button class="pb-1 text-sm font-semibold cursor-pointer text-white border-b-2 border-white">Blocks</button>
             <span class="text-[#4E627C] mx-2 mb-1">|</span>
@@ -278,10 +292,13 @@
     </div>
 
     <!-- Right Sidebar Wrapper -->
-    <div class="static shrink-0 h-full w-[230px] translate-x-0">
+    <div id="right-sidebar-wrapper" class="absolute inset-y-0 right-0 z-40 shrink-0 h-full w-[260px] lg:w-[230px] transition-transform duration-300 ease-in-out bg-[#FAF9F5] translate-x-[100%] lg:translate-x-0 lg:static">
       <div class="h-full relative flex flex-col items-start w-full">
         <!-- RightSidebar -->
-        <aside class="w-full lg:w-[230px] bg-[#FAF9F5] h-full shrink-0 border-l border-[#DCDAD4] flex flex-col z-20 pt-10 px-6">
+        <aside class="w-full h-full bg-[#FAF9F5] shrink-0 lg:border-l border-[#DCDAD4] flex flex-col z-20 pb-10 lg:pb-0 pt-10 px-6 relative">
+          <button class="lg:hidden absolute top-4 left-4 bg-black/5 text-[#55637A] p-1 rounded-full z-50 hover:bg-black/10 shadow-sm cursor-pointer" onclick="closeSidebars()">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
           
           <div class="flex items-center pb-2 mb-8 mt-2">
             <button class="font-bold text-[18px] pb-1.5 px-0 cursor-pointer text-[#1C2C4A]">Divider</button>
@@ -374,6 +391,28 @@
   </div>
 
   <script>
+    function openLeftSidebar() {
+      document.getElementById('left-sidebar-wrapper').classList.remove('-translate-x-[100%]');
+      document.getElementById('left-sidebar-wrapper').classList.add('translate-x-0', 'shadow-2xl');
+      document.getElementById('mobile-backdrop').classList.remove('hidden');
+    }
+    
+    function openRightSidebar() {
+      document.getElementById('right-sidebar-wrapper').classList.remove('translate-x-[100%]');
+      document.getElementById('right-sidebar-wrapper').classList.add('translate-x-0', 'shadow-[-10px_0_20px_rgba(0,0,0,0.1)]');
+      document.getElementById('mobile-backdrop').classList.remove('hidden');
+    }
+
+    function closeSidebars() {
+      document.getElementById('left-sidebar-wrapper').classList.remove('translate-x-0', 'shadow-2xl');
+      document.getElementById('left-sidebar-wrapper').classList.add('-translate-x-[100%]');
+      
+      document.getElementById('right-sidebar-wrapper').classList.remove('translate-x-0', 'shadow-[-10px_0_20px_rgba(0,0,0,0.1)]');
+      document.getElementById('right-sidebar-wrapper').classList.add('translate-x-[100%]');
+      
+      document.getElementById('mobile-backdrop').classList.add('hidden');
+    }
+
     // Initialize Lucide Icons
     lucide.createIcons();
   </script>
