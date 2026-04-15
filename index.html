@@ -283,8 +283,8 @@
                   <span class="text-[12px] font-bold text-[#4E627C] mb-2 block pl-2">Divider Icons</span>
                   <div class="w-full h-[52px] bg-white rounded-[12px] border border-[#DCDAD4] shadow-sm flex items-center px-6 overflow-hidden">
                     <div class="flex-1 flex items-center">
-                      <div id="canvas-divider-solid" class="w-1/3 shrink-0" style="height: 1.5px; background-color: #B5BFCB;"></div>
-                      <div id="canvas-divider" class="w-2/3 ml-4 flex-1 h-0" style="border-bottom-style: dashed; border-bottom-width: 1.5px; border-bottom-color: #B5BFCB;"></div>
+                      <div id="canvas-divider-solid" class="w-1/3 shrink-0" style="height: 1.5px; background-color: #F8A811;"></div>
+                      <div id="canvas-divider" class="w-2/3 ml-4 flex-1 h-0" style="border-bottom-style: dashed; border-bottom-width: 1.5px; border-bottom-color: #F8A811;"></div>
                     </div>
                   </div>
                 </div>
@@ -569,11 +569,16 @@
     function updateThickness(val) {
       document.getElementById('thickness-label').innerText = val + ' px';
       document.getElementById('thickness-progress').style.width = (val * 10) + '%';
+      
+      const currentColor = document.querySelector('input[type="color"]').value;
+
       if (document.getElementById('canvas-divider')) {
         document.getElementById('canvas-divider').style.borderBottomWidth = val + 'px';
+        document.getElementById('canvas-divider').style.borderBottomColor = currentColor;
       }
       if (document.getElementById('canvas-divider-solid')) {
         document.getElementById('canvas-divider-solid').style.height = val + 'px';
+        document.getElementById('canvas-divider-solid').style.backgroundColor = currentColor;
       }
     }
 
@@ -591,6 +596,7 @@
       const dashedBtn = document.getElementById('style-btn-dashed');
       const solidBtn = document.getElementById('style-btn-solid');
       const dottedBtn = document.getElementById('style-btn-dotted');
+      const currentColor = document.querySelector('input[type="color"]').value;
       
       dashedBtn.classList.remove('bg-[#F9F7E8]');
       dashedBtn.classList.add('bg-transparent');
@@ -612,6 +618,10 @@
 
       if (document.getElementById('canvas-divider')) {
         document.getElementById('canvas-divider').style.borderBottomStyle = style;
+        document.getElementById('canvas-divider').style.borderBottomColor = currentColor;
+      }
+      if (document.getElementById('canvas-divider-solid')) {
+        document.getElementById('canvas-divider-solid').style.backgroundColor = currentColor;
       }
     }
 
