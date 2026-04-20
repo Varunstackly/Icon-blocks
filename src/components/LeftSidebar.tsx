@@ -107,7 +107,7 @@ const LeftSidebar = () => {
                           <div
                             key={bIdx}
                             onClick={() => addBlock(block.name as BlockType)}
-                            className="bg-[#FAF8ED] rounded-xl flex flex-col items-center justify-center pt-2 pb-1.5 cursor-pointer shadow-sm border border-[#E8E6DB] hover:ring-2 ring-[#517AA5] transition-all"
+                            className="bg-[#FAF8ED] rounded-xl flex flex-col items-center justify-center pt-2 pb-1.5 cursor-pointer shadow-sm border border-[#E8E6DB] hover:ring-2 hover:ring-[#517AA5] hover:-translate-y-1 hover:shadow-md transition-all duration-300"
                           >
                             {block.icon}
                             <span className="text-[10px] font-semibold text-[#517AA5]">{block.name}</span>
@@ -140,16 +140,16 @@ const LeftSidebar = () => {
         ) : (
           /* Pages Content */
           <div className="flex flex-col gap-3">
-            <div className="bg-[#1A2B4C] border border-[#4E627C] rounded-lg p-3 cursor-pointer hover:bg-[#1f345c] transition-colors">
+            <div className="bg-[#1A2B4C] border border-[#4E627C] rounded-lg p-3 cursor-pointer hover:bg-[#1f345c] hover:scale-[1.02] hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">
               <span className="text-sm font-medium text-white">Home Page</span>
             </div>
-            <div className="bg-[#1A2B4C] border border-[#4E627C] rounded-lg p-3 cursor-pointer hover:bg-[#1f345c] transition-colors">
+            <div className="bg-[#1A2B4C] border border-[#4E627C] rounded-lg p-3 cursor-pointer hover:bg-[#1f345c] hover:scale-[1.02] hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">
               <span className="text-sm font-medium text-[#8495A5]">About Us</span>
             </div>
-            <div className="bg-[#1A2B4C] border border-[#4E627C] rounded-lg p-3 cursor-pointer hover:bg-[#1f345c] transition-colors">
+            <div className="bg-[#1A2B4C] border border-[#4E627C] rounded-lg p-3 cursor-pointer hover:bg-[#1f345c] hover:scale-[1.02] hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">
               <span className="text-sm font-medium text-[#8495A5]">Contact</span>
             </div>
-            <button className="text-sm font-semibold text-[#517AA5] border border-dashed border-[#517AA5] rounded-lg py-2 mt-4 hover:bg-[#517AA5]/10 transition-colors">
+            <button className="text-sm font-semibold text-[#517AA5] border border-dashed border-[#517AA5] rounded-lg py-2 mt-4 hover:bg-[#517AA5]/10 hover:shadow-sm active:scale-95 transition-all duration-300">
               + Add New Page
             </button>
           </div>
@@ -160,7 +160,7 @@ const LeftSidebar = () => {
       <div className="pb-6 bg-[#1A2B4C]">
         <button 
           onClick={() => alert('Help Center opened!')}
-          className="cursor-pointer flex items-center justify-between w-full rounded-xl bg-[#F5F2DF] px-4 py-2 text-[#517AA5] shadow-sm hover:bg-[#EBE7Ce] transition-colors"
+          className="cursor-pointer flex items-center justify-between w-full rounded-xl bg-[#F5F2DF] px-4 py-2 text-[#517AA5] shadow-sm hover:bg-[#EBE7Ce] hover:scale-105 hover:shadow-md active:scale-95 transition-all duration-300"
         >
           <div className="flex items-center gap-2">
             <svg width="18" height="22" viewBox="0 0 24 24" fill="none">

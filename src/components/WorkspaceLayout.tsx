@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar';
 import LeftSidebar from '@/components/LeftSidebar';
 import RightSidebar from '@/components/RightSidebar';
 import MainCanvas from '@/components/MainCanvas';
+import Footer from '@/components/Footer';
 import { ChevronRight, ChevronLeft, X } from 'lucide-react';
 
 export default function WorkspaceLayout() {
@@ -23,7 +24,8 @@ export default function WorkspaceLayout() {
     <>
       <Navbar />
       
-      <div className="flex flex-row flex-1 overflow-hidden h-full w-full relative">
+      <div className="flex flex-col flex-1 overflow-y-auto overflow-x-hidden w-full relative">
+        <div className="flex flex-row w-full flex-1 lg:min-h-[calc(100vh-64px)] shrink-0 relative bg-[#EBEBE6] lg:bg-transparent">
         
         {/* Mobile/Tablet Backdrop */}
         {!isDesktop && (isLeftOpen || isRightOpen) && (
@@ -95,6 +97,10 @@ export default function WorkspaceLayout() {
             <RightSidebar />
           </div>
         </div>
+        
+        </div>
+
+        <Footer />
         
       </div>
     </>

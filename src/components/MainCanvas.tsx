@@ -3,8 +3,7 @@
 import React from 'react';
 import {
   ChevronDown, Undo, Redo, Eye, Send, Save,
-  X, Monitor, Tablet, Smartphone, Search,
-  HelpCircle, Type, Image as ImageIcon, MousePointer2, Minus
+  X, Type, Image as ImageIcon, MousePointer2, Minus
 } from 'lucide-react';
 import { useCanvas } from '@/context/CanvasContext';
 
@@ -22,23 +21,23 @@ const MainCanvas = () => {
         </div>
         <div className="flex items-center gap-1.5 lg:gap-2.5">
           <div className="flex items-center border border-[#DCDAD4] rounded-[20px] bg-white shadow-sm h-[34px]">
-            <button onClick={() => alert('Undo action')} className="px-3 cursor-pointer text-[#7B8497] hover:text-[#1C2C4A] transition-colors h-full flex items-center justify-center">
+            <button onClick={() => alert('Undo action')} className="px-3 cursor-pointer text-[#7B8497] hover:text-[#1C2C4A] hover:bg-gray-100 hover:scale-110 active:scale-95 transition-all duration-300 h-full flex items-center justify-center rounded-l-[20px]">
               <Undo className="w-4 h-4" strokeWidth={2.5} />
             </button>
             <div className="w-[1px] h-[18px] bg-[#DCDAD4]" />
-            <button onClick={() => alert('Redo action')} className="px-3 cursor-pointer text-[#7B8497] hover:text-[#1C2C4A] transition-colors h-full flex items-center justify-center">
+            <button onClick={() => alert('Redo action')} className="px-3 cursor-pointer text-[#7B8497] hover:text-[#1C2C4A] hover:bg-gray-100 hover:scale-110 active:scale-95 transition-all duration-300 h-full flex items-center justify-center rounded-r-[20px]">
               <Redo className="w-4 h-4" strokeWidth={2.5} />
             </button>
           </div>
-          <button onClick={() => alert('Saved Draft')} className="cursor-pointer h-[34px] w-[34px] lg:w-auto px-0 lg:px-4 text-[13px] font-bold text-[#55637A] border border-[#DCDAD4] rounded-full lg:rounded-[20px] hover:bg-gray-50 transition-colors shadow-sm bg-white flex items-center justify-center">
+          <button onClick={() => alert('Saved Draft')} className="cursor-pointer h-[34px] w-[34px] lg:w-auto px-0 lg:px-4 text-[13px] font-bold text-[#55637A] border border-[#DCDAD4] rounded-full lg:rounded-[20px] hover:bg-gray-50 hover:-translate-y-0.5 hover:shadow-md active:scale-95 transition-all duration-300 shadow-sm bg-white flex items-center justify-center">
             <Save className="w-4 h-4 lg:hidden text-[#7B8497]" strokeWidth={2.5} />
             <span className="hidden lg:inline">Save Draft</span>
           </button>
-          <button onClick={() => alert('Previewing...')} className="cursor-pointer h-[34px] w-[34px] lg:w-auto px-0 lg:px-4 text-[13px] font-bold text-[#55637A] border border-[#DCDAD4] bg-white rounded-full lg:rounded-[20px] hover:bg-gray-50 transition-colors shadow-sm flex items-center justify-center lg:gap-1.5">
+          <button onClick={() => alert('Previewing...')} className="cursor-pointer h-[34px] w-[34px] lg:w-auto px-0 lg:px-4 text-[13px] font-bold text-[#55637A] border border-[#DCDAD4] bg-white rounded-full lg:rounded-[20px] hover:bg-gray-50 hover:-translate-y-0.5 hover:shadow-md active:scale-95 transition-all duration-300 shadow-sm flex items-center justify-center lg:gap-1.5">
             <Eye className="w-4 h-4 text-[#7B8497]" strokeWidth={2.5} />
             <span className="hidden lg:inline">Preview</span>
           </button>
-          <button onClick={() => alert('Published!')} className="cursor-pointer h-[34px] w-[34px] lg:w-auto px-0 lg:px-5 text-[13px] font-bold text-white bg-[#1C2C4A] rounded-full lg:rounded-[20px] hover:bg-[#14233c] transition-colors shadow-sm flex items-center justify-center lg:gap-2">
+          <button onClick={() => alert('Published!')} className="cursor-pointer h-[34px] w-[34px] lg:w-auto px-0 lg:px-5 text-[13px] font-bold text-white bg-[#1C2C4A] rounded-full lg:rounded-[20px] hover:bg-[#14233c] hover:-translate-y-0.5 hover:shadow-lg active:scale-95 transition-all duration-300 shadow-sm flex items-center justify-center lg:gap-2">
             <span className="hidden lg:inline">Publish</span>
             <Send className="w-3.5 h-3.5 -ml-0.5 lg:-ml-0" strokeWidth={2.5} />
           </button>
@@ -175,34 +174,7 @@ const MainCanvas = () => {
       </div>
 
       {/* Absolute Bottom Elements */}
-      <button className="absolute bottom-6 left-6 bg-[#2B54A6] text-white rounded-lg px-4 py-2.5 flex items-center gap-2 shadow-lg hover:bg-[#254992] transition-colors z-30">
-        <HelpCircle className="w-[18px] h-[18px]" strokeWidth={2.5} />
-        <span className="text-[15px] font-bold">Help</span>
-      </button>
 
-      <div className="absolute bottom-6 right-6 bg-[#2B54A6] rounded-[6px] p-[6px] flex items-center gap-1.5 shadow-lg z-30">
-        <button
-          onClick={() => setDeviceMode('desktop')}
-          className={`p-1.5 rounded transition-colors ${deviceMode === 'desktop' ? 'bg-white/20 text-white' : 'text-white/50 hover:text-white bg-transparent'}`}
-        >
-          <Monitor className="w-5 h-5" strokeWidth={2} />
-        </button>
-        <button
-          onClick={() => setDeviceMode('tablet')}
-          className={`p-1.5 rounded transition-colors ${deviceMode === 'tablet' ? 'bg-white/20 text-white' : 'text-white/50 hover:text-white bg-transparent'}`}
-        >
-          <Tablet className="w-5 h-5" strokeWidth={2} />
-        </button>
-        <button
-          onClick={() => setDeviceMode('mobile')}
-          className={`p-1.5 rounded transition-colors ${deviceMode === 'mobile' ? 'bg-white/20 text-white' : 'text-white/50 hover:text-white bg-transparent'}`}
-        >
-          <Smartphone className="w-5 h-5" strokeWidth={2} />
-        </button>
-        <button className="p-1.5 text-white hover:text-white bg-transparent rounded transition-colors ml-1 border-l border-white/20 pl-2">
-          <Search className="w-5 h-5" strokeWidth={2.5} />
-        </button>
-      </div>
 
     </div>
   );

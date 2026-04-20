@@ -33,14 +33,14 @@ const RightSidebar = () => {
       <div className="flex items-center pb-2 mb-8 mt-2">
         <button
           onClick={() => setActiveTab('Divider')}
-          className={`font-bold text-[18px] pb-1.5 px-0 cursor-pointer ${activeTab === 'Divider' ? 'text-[#1C2C4A]' : 'text-[#7B8497] font-medium'}`}
+          className={`font-bold text-[18px] pb-1.5 px-0 cursor-pointer transition-all duration-300 hover:text-[#1C2C4A] hover:-translate-y-0.5 ${activeTab === 'Divider' ? 'text-[#1C2C4A]' : 'text-[#7B8497] font-medium'}`}
         >
           Divider
         </button>
         <span className="text-[#A2AAB8] text-[22px] mx-5 font-light pb-1">|</span>
         <button
           onClick={() => setActiveTab('Style')}
-          className={`font-bold text-[18px] pb-1.5 px-0 cursor-pointer ${activeTab === 'Style' ? 'text-[#1C2C4A]' : 'text-[#7B8497] font-medium'}`}
+          className={`font-bold text-[18px] pb-1.5 px-0 cursor-pointer transition-all duration-300 hover:text-[#1C2C4A] hover:-translate-y-0.5 ${activeTab === 'Style' ? 'text-[#1C2C4A]' : 'text-[#7B8497] font-medium'}`}
         >
           Style
         </button>
@@ -69,10 +69,10 @@ const RightSidebar = () => {
                   <div className="flex items-center justify-between mb-4">
                     <span className="text-[14px] font-semibold text-[#55637A]">Style</span>
                     <div className="flex items-center gap-2">
-                      <button className="w-6 h-6 bg-[#1C2C4A] text-white rounded-[4px] flex items-center justify-center">
+                      <button className="w-6 h-6 bg-[#1C2C4A] text-white rounded-[4px] flex items-center justify-center hover:scale-105 active:scale-95 transition-transform duration-200">
                         <Equal className="w-[14px] h-[14px]" strokeWidth={4} />
                       </button>
-                      <button className="w-6 h-6 text-[#1C2C4A] rounded flex items-center justify-center hover:bg-gray-100">
+                      <button className="w-6 h-6 text-[#1C2C4A] rounded flex items-center justify-center hover:bg-gray-100 hover:scale-105 active:scale-95 transition-all duration-200">
                         <Menu className="w-[18px] h-[18px]" strokeWidth={2} />
                       </button>
                     </div>
@@ -83,7 +83,7 @@ const RightSidebar = () => {
                     {/* Box 1: Left */}
                     <button
                       onClick={() => handleStyleChange('dashed')}
-                      className={`flex-1 border-r border-[#A6B2C8] flex items-center px-2 relative transition-colors cursor-pointer ${selectedBlock?.props.style === 'dashed' ? 'bg-[#F9F7E8]' : 'bg-transparent'}`}
+                      className={`flex-1 border-r border-[#A6B2C8] flex items-center px-2 relative transition-all duration-300 hover:bg-[#F9F7E8]/60 cursor-pointer ${selectedBlock?.props.style === 'dashed' ? 'bg-[#F9F7E8]' : 'bg-transparent'}`}
                     >
                       <div className="w-full flex items-center">
                         <div className="w-1/2 h-[1px] bg-[#A6B2C8]"></div>
@@ -94,7 +94,7 @@ const RightSidebar = () => {
                     {/* Box 2: Center */}
                     <button
                       onClick={() => handleStyleChange('solid')}
-                      className={`flex-1 border-r border-[#A6B2C8] flex items-center px-1.5 relative transition-colors cursor-pointer ${selectedBlock?.props.style === 'solid' ? 'bg-[#F9F7E8]' : 'bg-transparent'}`}
+                      className={`flex-1 border-r border-[#A6B2C8] flex items-center px-1.5 relative transition-all duration-300 hover:bg-[#F9F7E8]/60 cursor-pointer ${selectedBlock?.props.style === 'solid' ? 'bg-[#F9F7E8]' : 'bg-transparent'}`}
                     >
                       <div className="w-full flex items-center">
                         <div className="w-1/4 h-[1px] bg-[#A6B2C8]"></div>
@@ -106,7 +106,7 @@ const RightSidebar = () => {
                     {/* Box 3: Right */}
                     <button
                       onClick={() => handleStyleChange('dotted')}
-                      className={`flex-1 flex items-center px-2 relative transition-colors cursor-pointer ${selectedBlock?.props.style === 'dotted' ? 'bg-[#F9F7E8]' : 'bg-transparent'}`}
+                      className={`flex-1 flex items-center px-2 relative transition-all duration-300 hover:bg-[#F9F7E8]/60 cursor-pointer ${selectedBlock?.props.style === 'dotted' ? 'bg-[#F9F7E8]' : 'bg-transparent'}`}
                     >
                       <div className="w-full flex items-center">
                         <div className="w-1/2 h-[3px] bg-[#1C2C4A]"></div>
